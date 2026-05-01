@@ -56,22 +56,26 @@
 
       <div class="doc-hero" id="overview">
         <h1>DeliveryOS</h1>
-        <p class="tagline">Structured sprint execution, QA governance, and production release control — embedded directly in your GitHub repos.</p>
+        <p class="tagline">Structured sprint execution, QA governance, and production release control — embedded in your <strong>GitHub</strong> or <strong>GitLab</strong> repos (same npm package).</p>
       </div>
 
       <section id="install">
-        <h2>One command to install</h2>
-        <p>Add DeliveryOS to any repository. No clone, no config — just run:</p>
+        <h2>Install (same CLI, two providers)</h2>
+        <p>DeliveryOS ships as the <strong><code>deliveryos</code></strong> npm package. The default install adds <strong>GitHub Actions</strong> workflows and optional issue forms. For <strong>GitLab</strong>, pass <code>--provider gitlab</code> to install the CI bundle and <code>.gitlab</code> issue templates instead.</p>
         <div class="install-block">
-          <div class="install-label">From your repo root</div>
+          <div class="install-label">GitHub (default)</div>
           <code>npx deliveryos install --with-templates .</code>
         </div>
-        <p>Add <code>--with-labels</code> to create labels via <code>gh</code> CLI (requires <code>gh auth</code>). Use <code>--dry-run</code> to preview first.</p>
+        <div class="install-block">
+          <div class="install-label">GitLab</div>
+          <code>npx deliveryos install --provider gitlab --with-templates .</code>
+        </div>
+        <p>Add <code>--with-labels</code> to create labels via <code>gh</code> (GitHub) or <code>glab</code> (GitLab). Use <code>--dry-run</code> to preview. Full GitLab webhooks, tokens, and CI variables: <a href="https://github.com/jkaweesi22/deliveryOS/blob/main/docs/GITLAB.md">docs/GITLAB.md</a> on the repo.</p>
       </section>
 
       <section id="why">
         <h2>Why this exists</h2>
-        <p>Engineering teams often rely on informal coordination in GitHub — manual approvals, inconsistent sprint tracking, reactive QA, and socially enforced releases. As teams scale, that creates:</p>
+        <p>Engineering teams often rely on informal coordination in Git hosts — manual approvals, inconsistent sprint tracking, reactive QA, and socially enforced releases. As teams scale, that creates:</p>
         <ul>
           <li>Delivery ambiguity</li>
           <li>QA bottlenecks</li>
@@ -105,7 +109,8 @@
       </section>
 
       <section id="workflows">
-        <h2>Workflows installed</h2>
+        <h2>What gets installed</h2>
+        <p><strong>GitHub:</strong> the workflows below (Actions). <strong>GitLab:</strong> a root <code>.gitlab-ci.yml</code> bundle (Pages + releases baseline) plus markdown issue templates under <code>.gitlab/issue_templates/</code> — not the same filenames, but the same governance ideas. Issue automation on GitLab uses webhooks to run the same CLI; see <a href="https://github.com/jkaweesi22/deliveryOS/blob/main/docs/GITLAB.md">GITLAB.md</a>.</p>
         <div class="table-wrap">
           <table class="workflows-table">
             <thead>
@@ -129,11 +134,17 @@
 
       <section id="quick-start">
         <h2>Quick start (after install)</h2>
+        <p><strong>GitHub</strong></p>
         <ol class="steps">
-          <li style="margin-bottom: 0.5rem;">Create labels: Actions → Setup Labels → Run workflow</li>
+          <li style="margin-bottom: 0.5rem;">Create labels: Actions → DeliveryOS — Labels → Run workflow</li>
           <li style="margin-bottom: 0.5rem;">Configure variables: Settings → Secrets and variables → Actions → Variables<br>
             <code>RELEASE_APPROVER</code>, <code>QA_APPROVER</code>, <code>QA_ASSIGNEES</code></li>
           <li style="margin-bottom: 0.5rem;">Optional: Add <code>TELEGRAM_BOT_TOKEN</code> and <code>TELEGRAM_CHAT_ID</code> for alerts</li>
+        </ol>
+        <p><strong>GitLab</strong></p>
+        <ol class="steps">
+          <li style="margin-bottom: 0.5rem;">Set the same variables in <strong>Settings → CI/CD → Variables</strong> (<code>RELEASE_APPROVER</code>, <code>QA_APPROVER</code>, etc.).</li>
+          <li style="margin-bottom: 0.5rem;">Wire <strong>project webhooks</strong> (Issues, Comments, Merge requests) to a job that runs <code>node …/dist/main.js issue-event</code> / <code>approval-event</code> / <code>notify</code> with the payload — same CLI as GitHub; see <a href="https://github.com/jkaweesi22/deliveryOS/tree/main/examples/gitlab-ci">examples/gitlab-ci</a>.</li>
         </ol>
       </section>
 
@@ -142,6 +153,7 @@
         <div class="inline-links">
           <a href="https://github.com/jkaweesi22/deliveryOS" class="cta">View on GitHub →</a>
           <a href="prfaq.html">Product &amp; FAQ (PRFAQ) →</a>
+          <a href="https://github.com/jkaweesi22/deliveryOS/blob/main/docs/GITLAB.md">GitLab setup (GITLAB.md) →</a>
         </div>
       </section>
     </main>
