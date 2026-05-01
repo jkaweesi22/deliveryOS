@@ -1,5 +1,5 @@
 # Telegram alerts (parity with legacy telegram-issues.yml)
-name: Delivery OS — Telegram
+name: DeliveryOS — Telegram
 
 on:
   issues:

@@ -1,5 +1,5 @@
 # Sprint children, release approver ping, QA assignees, sprint burn-down — unified issues handler
-name: Delivery OS — Issues
+name: DeliveryOS — Issues
 
 on:
   issues:

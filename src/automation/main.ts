@@ -23,7 +23,7 @@ async function main(): Promise<void> {
   const program = new Command();
   program
     .name('delivery-os')
-    .description('Delivery OS automation (issue governance, approvals, notify)')
+    .description('DeliveryOS automation (issue governance, approvals, notify)')
     .version(readVersion());
 
   program
@@ -49,7 +49,7 @@ async function main(): Promise<void> {
 
   program
     .command('labels-ensure')
-    .description('Create Delivery OS labels if missing')
+    .description('Create DeliveryOS labels if missing')
     .action(async () => {
       await runLabelsEnsure();
     });

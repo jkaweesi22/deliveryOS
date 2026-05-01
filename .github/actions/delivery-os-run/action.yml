@@ -1,4 +1,4 @@
-name: Build Delivery OS CLI
+name: Build DeliveryOS CLI
 description: npm ci + build TypeScript automation (dist/)
 runs:
   using: composite

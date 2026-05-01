@@ -5,11 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.4] - 2026-05-01
+
+### Changed
+
+- npm **package name** is **`deliveryos`** (CLI command remains **`delivery-os`**). Install with `npx deliveryos …`.
+- **DeliveryOS** branding; `repository` / `homepage` / `bugs` point at [jkaweesi22/deliveryOS](https://github.com/jkaweesi22/deliveryOS). Docs and site links updated accordingly.
+
 ## [1.0.3] - 2026-03-31
 
 ### Changed
 
-- Package metadata (`repository`, `homepage`, `bugs`) and docs now point at the **Phaneroo** GitHub org after the repo transfer (npm registry page updates on publish).
+- Package metadata and docs previously pointed at the Phaneroo org following an upstream repo transfer (historical note).
 
 ## [1.0.2] - 2026-03-17
 

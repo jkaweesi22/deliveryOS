@@ -1,5 +1,5 @@
 # Dual approval / decline on production issues (issue comments)
-name: Delivery OS — Approval
+name: DeliveryOS — Approval
 
 on:
   issue_comment:

@@ -16,7 +16,7 @@ We kept hitting the same walls:
 
 So I built **GitHub Delivery Operating System** — a framework that embeds structured sprint execution, QA governance, and dual approval gates directly into GitHub. No new tools. No CI/CD changes. Just one command:
 
-`npx github-delivery-os install --with-templates .`
+`npx deliveryos install --with-templates .`
 
 You get:
 • Sprint child creation (each feature → issue, burn-down, auto-close)
@@ -26,7 +26,7 @@ You get:
 
 Open source. MIT. Published on npm. Built for teams that want governance without the overhead.
 
-Try it: https://phaneroo.github.io/github-delivery-operating-system
+Try it: https://jkaweesi22.github.io/deliveryOS
 
 #Engineering #DevOps #GitHub #DeliveryManagement #OpenSource
 
@@ -36,11 +36,11 @@ Try it: https://phaneroo.github.io/github-delivery-operating-system
 
 **One command to add sprint governance, QA gates, and release approval to any GitHub repo:**
 
-`npx github-delivery-os install --with-templates .`
+`npx deliveryos install --with-templates .`
 
 No new tools. No CI/CD changes. Just structured delivery, embedded in GitHub.
 
-Open source on npm → https://www.npmjs.com/package/github-delivery-os
+Open source on npm → https://www.npmjs.com/package/deliveryos
 
 #GitHub #Engineering #DevOps
 
@@ -56,7 +56,7 @@ GitHub Delivery Operating System adds structured sprint execution, QA governance
 
 Built for teams that want clarity without the overhead.
 
-https://phaneroo.github.io/github-delivery-operating-system
+https://jkaweesi22.github.io/deliveryOS
 
 ---
 
@@ -66,7 +66,7 @@ https://phaneroo.github.io/github-delivery-operating-system
 
 A GitHub-native framework for sprint execution, QA governance, and production release control — installable in one command.
 
-`npx github-delivery-os install --with-templates .`
+`npx deliveryos install --with-templates .`
 
 What it does:
 • Creates child issues from sprint features (burn-down, auto-close at 100%)
@@ -78,7 +78,7 @@ No new tools. No CI/CD changes. Just workflows and templates copied into your re
 
 Open source. MIT. On npm.
 
-https://phaneroo.github.io/github-delivery-operating-system
+https://jkaweesi22.github.io/deliveryOS
 
 #OpenSource #GitHub #DeliveryManagement #Engineering #DevOps
 
@@ -92,11 +92,11 @@ Sound familiar?
 
 I built **GitHub Delivery Operating System** — one command to add structured delivery, QA gates, and dual approval directly into your GitHub repos. No new tools. No CI/CD changes.
 
-`npx github-delivery-os install --with-templates .`
+`npx deliveryos install --with-templates .`
 
 Open source. MIT. Built for teams that want governance without the overhead.
 
-https://phaneroo.github.io/github-delivery-operating-system
+https://jkaweesi22.github.io/deliveryOS
 
 ---
 

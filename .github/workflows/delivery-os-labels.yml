@@ -1,5 +1,5 @@
-# One-time / manual: ensure Delivery OS labels exist
-name: Delivery OS — Labels
+# One-time / manual: ensure DeliveryOS labels exist
+name: DeliveryOS — Labels
 
 on:
   workflow_dispatch:

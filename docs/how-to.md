@@ -6,11 +6,11 @@ Step-by-step instructions for using the Delivery Operating System after installa
 
 ## Install Into Another Repo
 
-### Step 1: Clone Delivery OS
+### Step 1: Clone DeliveryOS
 
 ```bash
-git clone https://github.com/Phaneroo/github-delivery-operating-system
-cd github-delivery-operating-system
+git clone https://github.com/jkaweesi22/deliveryOS
+cd deliveryOS
 ```
 
 ### Step 2: Run the Installer
@@ -44,7 +44,7 @@ Settings → Secrets and variables → Actions → Variables:
 ```bash
 cd /path/to/your-consumer-repo
 git add .github/
-git commit -m "Install Delivery OS"
+git commit -m "Install DeliveryOS"
 git push
 ```
 
@@ -133,9 +133,9 @@ Alerts are sent for: bugs, QA requests, sprints, production releases, PR merges 
 
 **Option A — CLI (recommended):**
 ```bash
-npx github-delivery-os uninstall .                    # Remove workflows only
-npx github-delivery-os uninstall --with-templates .    # Remove workflows + templates
-npx github-delivery-os uninstall --dry-run .           # Preview
+npx deliveryos uninstall .                    # Remove workflows only
+npx deliveryos uninstall --with-templates .    # Remove workflows + templates
+npx deliveryos uninstall --dry-run .           # Preview
 ```
 
 **Option B — Manual:**

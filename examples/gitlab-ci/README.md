@@ -1,4 +1,4 @@
-# GitLab: Delivery OS automation via webhook + trigger
+# GitLab: DeliveryOS automation via webhook + trigger
 
 1. Create a **Project Access Token** (or bot user PAT) with `api` scope. Store as masked CI variable `DELIVERY_OS_TOKEN`.
 2. Add project **Webhooks** for **Issues events**, **Comments** (issue notes), and **Merge request events** (so `notify` can fire when an MR merges to your default branch — same rule as GitHub PR merged). Details: [docs/GITLAB.md](../../docs/GITLAB.md).

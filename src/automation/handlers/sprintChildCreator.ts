@@ -20,7 +20,7 @@ export async function handleSprintChildCreator(
     return;
   }
 
-  const bodyContent = `Parent Sprint: #${payload.issue.number}\n\n---\n*Created by Delivery OS Sprint Child Creator*`;
+  const bodyContent = `Parent Sprint: #${payload.issue.number}\n\n---\n*Created by DeliveryOS Sprint Child Creator*`;
 
   if (cfg.dryRun) {
     logger.info({

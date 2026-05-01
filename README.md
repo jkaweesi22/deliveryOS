@@ -1,8 +1,8 @@
-# Delivery Operating System
+# DeliveryOS
 
 > Delivery governance for Git hosting: structured sprints, QA review, and release control. **GitHub** and **GitLab** are fully supported by the shared CLI; see [`docs/PROVIDER_MATRIX.md`](docs/PROVIDER_MATRIX.md), [`docs/GITLAB.md`](docs/GITLAB.md), and [`docs/EXTENDING.md`](docs/EXTENDING.md) for other hosts.
 
-[![Socket Badge](https://badge.socket.dev/npm/package/github-delivery-os)](https://socket.dev/npm/package/github-delivery-os)
+[![Socket Badge](https://badge.socket.dev/npm/package/deliveryos)](https://socket.dev/npm/package/deliveryos)
 
 ---
 
@@ -18,7 +18,7 @@ As teams scale, this creates:
 * Release risk
 * Cross-team misalignment
 
-The **Delivery OS** embeds structured intake, sprint orchestration, QA governance, and collaborative release gates directly into engineering repositories — without replacing CI/CD pipelines or disrupting developer workflows.
+**DeliveryOS** embeds structured intake, sprint orchestration, QA governance, and collaborative release gates directly into engineering repositories — without replacing CI/CD pipelines or disrupting developer workflows.
 
 ---
 
@@ -27,9 +27,9 @@ The **Delivery OS** embeds structured intake, sprint orchestration, QA governanc
 **One command** (recommended):
 
 ```bash
-npx github-delivery-os install --with-templates .
+npx deliveryos install --with-templates .
 # GitLab (CI bundle + markdown issue templates):
-npx github-delivery-os install --provider gitlab --with-templates .
+npx deliveryos install --provider gitlab --with-templates .
 ```
 
 From your repo root. Add `--with-labels` to create labels via `gh` (GitHub) or `glab` (GitLab). Use `--dry-run` to preview first.
@@ -37,8 +37,8 @@ From your repo root. Add `--with-labels` to create labels via `gh` (GitHub) or `
 **Alternative — clone and run script:**
 
 ```bash
-git clone https://github.com/Phaneroo/github-delivery-operating-system
-cd github-delivery-operating-system
+git clone https://github.com/jkaweesi22/deliveryOS
+cd deliveryOS
 
 # New install or repo with existing workflows — adds only missing files (safe)
 ./scripts/install.sh --with-templates /path/to/your-repo
@@ -49,19 +49,19 @@ cd github-delivery-operating-system
 # Also create labels via gh (GitHub) or glab (GitLab)
 ./scripts/install.sh --with-templates --with-labels /path/to/your-repo
 
-# Update Delivery OS (replace existing) — use --dry-run first to preview
+# Update DeliveryOS (replace existing) — use --dry-run first to preview
 ./scripts/install.sh --with-templates --overwrite /path/to/your-repo
 ```
 
-**Note:** By default, existing files are **never overwritten**. Use `--overwrite` only when updating Delivery OS. See [Consumer Setup](docs/consumer-setup.md) for the full command guide.
+**Note:** By default, existing files are **never overwritten**. Use `--overwrite` only when updating DeliveryOS. See [Consumer Setup](docs/consumer-setup.md) for the full command guide.
 
 **Other commands:**
 ```bash
-npx github-delivery-os status .                    # Show what's installed
-npx github-delivery-os uninstall .                    # Remove all installed assets (default)
-npx github-delivery-os uninstall --provider github .   # GitHub workflows/templates only
-npx github-delivery-os uninstall --provider gitlab --with-templates .  # GitLab CI bundle + templates
-npx github-delivery-os uninstall --dry-run .           # Preview (no changes)
+npx deliveryos status .                    # Show what's installed
+npx deliveryos uninstall .                    # Remove all installed assets (default)
+npx deliveryos uninstall --provider github .   # GitHub workflows/templates only
+npx deliveryos uninstall --provider gitlab --with-templates .  # GitLab CI bundle + templates
+npx deliveryos uninstall --dry-run .           # Preview (no changes)
 ```
 
 **Automation CLI** (after `npm run build` in-repo, or from a published package via `npx`): `issue-event`, `approval-event`, `notify`, `labels-ensure`, `release-check`. See [docs/MIGRATION.md](docs/MIGRATION.md) and [docs/PROVIDER_MATRIX.md](docs/PROVIDER_MATRIX.md).
@@ -83,7 +83,7 @@ Workflows and templates are **copied** into your repo. No `workflow_call` to an 
 
 ## Quick Start (After Install)
 
-1. **Create labels:** Actions → **Delivery OS — Labels** → Run workflow
+1. **Create labels:** Actions → **DeliveryOS — Labels** → Run workflow
 2. **Configure variables:** Settings → Secrets and variables → Actions → Variables
    - `RELEASE_APPROVER` — GitHub username
    - `QA_APPROVER` — GitHub username
@@ -108,9 +108,9 @@ When you open an issue using the **Sprint Planning** template with a title like 
 
 | Document | Description |
 |----------|-------------|
-| **[Landing page & quick start](https://phaneroo.github.io/github-delivery-operating-system/)** | Overview, one-command install, features |
+| **[Landing page & quick start](https://jkaweesi22.github.io/deliveryOS/)** | Overview, one-command install, features |
 | [PRFAQ](docs/PRFAQ.md) | Product overview and FAQs for all audiences (npm launch, install, governance) |
-| [Press release (npm)](docs/press-release.md) | Formal announcement: Delivery OS on npm |
+| [Press release (npm)](docs/press-release.md) | Formal announcement: DeliveryOS on npm |
 | [Consumer Setup](docs/consumer-setup.md) | Installation, configuration, variables, labels, Telegram, uninstall |
 | [How To](docs/how-to.md) | Create sprints, request releases, approve, report bugs, QA requests |
 | [Architecture](docs/architecture.md) | Workflows, templates, data flow |

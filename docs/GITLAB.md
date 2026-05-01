@@ -1,10 +1,10 @@
 # GitLab: webhooks, API, and parity with GitHub
 
-Delivery OS treats GitLab as a **first-class** host: the same CLI (`issue-event`, `approval-event`, `notify`, `labels-ensure`, `release-check`) and the same `DeliveryProvider` surface as GitHub, with GitLab-specific normalization in `src/automation/normalize/gitlab.ts`.
+DeliveryOS treats GitLab as a **first-class** host: the same CLI (`issue-event`, `approval-event`, `notify`, `labels-ensure`, `release-check`) and the same `DeliveryProvider` surface as GitHub, with GitLab-specific normalization in `src/automation/normalize/gitlab.ts`.
 
 ## Webhooks to enable
 
-In your GitLab project: **Settings → Webhooks**, point at the job or bridge that runs the Delivery OS CLI with the JSON body.
+In your GitLab project: **Settings → Webhooks**, point at the job or bridge that runs the DeliveryOS CLI with the JSON body.
 
 | GitLab hook | Used for |
 |-------------|----------|

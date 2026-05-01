@@ -1,4 +1,4 @@
-# Consumer example: use published npm package (no checkout of Delivery OS)
+# Consumer example: use published npm package (no checkout of DeliveryOS)
 
 Run from your repository root in GitHub Actions:
 
@@ -6,7 +6,7 @@ Run from your repository root in GitHub Actions:
 - uses: actions/setup-node@v4
   with:
     node-version: '20'
-- run: npx --yes github-delivery-os@1 issue-event
+- run: npx --yes deliveryos@1 issue-event
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```

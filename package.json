@@ -1,7 +1,7 @@
 {
-  "name": "github-delivery-os",
-  "version": "1.0.3",
-  "description": "Delivery OS: platform-agnostic governance CLI (GitHub, GitLab) with installers and CI templates.",
+  "name": "deliveryos",
+  "version": "1.0.4",
+  "description": "DeliveryOS — platform-agnostic governance CLI (GitHub, GitLab) with installers and CI templates.",
   "main": "src/install.js",
   "bin": {
     "delivery-os": "./bin/delivery-os.js"
@@ -19,6 +19,7 @@
     "gitlab",
     "gitlab-ci",
     "delivery",
+    "deliveryos",
     "sprint",
     "sprint-planning",
     "qa",
@@ -34,11 +35,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Phaneroo/github-delivery-operating-system"
+    "url": "git+https://github.com/jkaweesi22/deliveryOS.git"
   },
-  "homepage": "https://phaneroo.github.io/github-delivery-operating-system/",
+  "homepage": "https://github.com/jkaweesi22/deliveryOS#readme",
   "bugs": {
-    "url": "https://github.com/Phaneroo/github-delivery-operating-system/issues"
+    "url": "https://github.com/jkaweesi22/deliveryOS/issues"
   },
   "files": [
     "bin",

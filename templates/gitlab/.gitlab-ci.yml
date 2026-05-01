@@ -1,5 +1,5 @@
 # delivery-operating-system-bundle
-# Platform-agnostic Delivery OS CI baseline: GitLab Pages (docs/) + semantic version releases.
+# Platform-agnostic DeliveryOS CI baseline: GitLab Pages (docs/) + semantic version releases.
 # Issue/sprint automation used on GitHub Actions is not triggered the same way on GitLab; see docs/platform-ci.md.
 #
 # Configure in GitLab: Settings → CI/CD → Variables (masked where needed):

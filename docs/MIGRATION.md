@@ -1,4 +1,4 @@
-# Migration: inline GitHub Actions → Delivery OS CLI
+# Migration: inline GitHub Actions → DeliveryOS CLI
 
 ## Summary
 
@@ -25,7 +25,7 @@ Legacy workflows embedded business logic in `actions/github-script`. These are r
 Run the installer again with `--overwrite` after upgrading the npm package so workflows and the composite action align:
 
 ```bash
-npx github-delivery-os install --with-templates --overwrite .
+npx deliveryos install --with-templates --overwrite .
 ```
 
 Manually delete any leftover **old** workflow files if you had customized names.

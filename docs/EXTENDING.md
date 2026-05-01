@@ -1,4 +1,4 @@
-# Extending Delivery OS to another Git host
+# Extending DeliveryOS to another Git host
 
 GitHub and GitLab are fully implemented. Other products reuse the same pipeline: **normalize webhooks → core handlers → `DeliveryProvider`**.
 

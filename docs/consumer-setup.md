@@ -8,12 +8,12 @@ This guide explains how to install the Delivery Operating System into your repos
 
 | Situation | Command | What happens |
 |-----------|---------|--------------|
-| **New repo** (no Delivery OS yet) | `./scripts/install.sh --with-templates /path/to/repo` | Installs all workflows and templates |
-| **Repo with existing workflows/templates** (yours + others) | `./scripts/install.sh --with-templates /path/to/repo` | Adds only *missing* Delivery OS files. **Your existing files are NOT touched.** |
-| **Update Delivery OS** (get latest fixes) | `./scripts/install.sh --with-templates --overwrite /path/to/repo` | **Replaces** Delivery OS workflows/templates. Your *other* workflows (different names) stay intact. |
+| **New repo** (no DeliveryOS yet) | `./scripts/install.sh --with-templates /path/to/repo` | Installs all workflows and templates |
+| **Repo with existing workflows/templates** (yours + others) | `./scripts/install.sh --with-templates /path/to/repo` | Adds only *missing* DeliveryOS files. **Your existing files are NOT touched.** |
+| **Update DeliveryOS** (get latest fixes) | `./scripts/install.sh --with-templates --overwrite /path/to/repo` | **Replaces** DeliveryOS workflows/templates. Your *other* workflows (different names) stay intact. |
 | **Preview before installing** | `./scripts/install.sh --with-templates --dry-run /path/to/repo` | Shows what would be copied. No files changed. |
 
-**Warning:** `--overwrite` replaces only Delivery OS files (same names). It does **not** delete your other workflows or templates. Use `--dry-run` first if unsure.
+**Warning:** `--overwrite` replaces only DeliveryOS files (same names). It does **not** delete your other workflows or templates. Use `--dry-run` first if unsure.
 
 ---
 
@@ -22,12 +22,12 @@ This guide explains how to install the Delivery Operating System into your repos
 **One command (recommended):**
 
 ```bash
-npx github-delivery-os install --with-templates .
+npx deliveryos install --with-templates .
 ```
 
 From your repo root. Add `--with-labels` to create labels via `gh` CLI.
 
-**Alternative — from the `github-delivery-operating-system` repo root:**
+**Alternative — from the `deliveryOS` repo root:**
 
 ```bash
 # Copy workflows only
@@ -49,7 +49,7 @@ From your repo root. Add `--with-labels` to create labels via `gh` CLI.
 ./scripts/install.sh --no-overwrite /path/to/your-repo
 ```
 
-**CLI options (with `npx github-delivery-os install`):**
+**CLI options (with `npx deliveryos install`):**
 
 | Flag | Description |
 |------|-------------|
@@ -131,7 +131,7 @@ Alerts are sent for: bugs, QA requests, sprints, production releases, PR merges 
 
 ## Required Labels
 
-Run **Actions → Delivery OS — Labels → Run workflow** once, or use `--with-labels` when installing (requires `gh` CLI).
+Run **Actions → DeliveryOS — Labels → Run workflow** once, or use `--with-labels` when installing (requires `gh` CLI).
 
 | Label | Color |
 |-------|-------|
@@ -186,6 +186,6 @@ The consumer repo must allow workflows to write. In your consumer repo:
    - `delivery-os-labels.yml`
 2. Remove `.github/actions/delivery-os-run/action.yml` (and empty `actions` folders if desired).
 
-Or run `npx github-delivery-os uninstall .` (see CLI help for `--provider`).
+Or run `npx deliveryos uninstall .` (see CLI help for `--provider`).
 
 3. Optionally remove templates from `.github/ISSUE_TEMPLATE/` and repo variables/secrets.

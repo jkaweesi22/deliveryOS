@@ -1,6 +1,6 @@
 import type { LabelDefinition } from './types.js';
 
-/** Single source of truth for Delivery OS labels (matches legacy setup-labels / install). */
+/** Single source of truth for DeliveryOS labels (matches legacy setup-labels / install). */
 export const DELIVERY_LABELS: LabelDefinition[] = [
   { name: 'intake', color: '0E8A16' },
   { name: 'bug', color: 'D93F0B' },

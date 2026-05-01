@@ -62,7 +62,7 @@ echo "Provider: ${PROVIDER}"
 echo "Target: ${TARGET_ABS}"
 if [ "$OVERWRITE" = "true" ]; then
   echo ""
-  echo "⚠️  WARNING: Overwrite mode — existing Delivery OS assets will be REPLACED."
+  echo "⚠️  WARNING: Overwrite mode — existing DeliveryOS assets will be REPLACED."
   echo ""
 elif [ "$DRY_RUN" = "true" ]; then
   echo "Mode: dry-run (no files will be changed)"
@@ -316,7 +316,7 @@ if [ $WORKFLOWS_COPIED -gt 0 ] || [ $TEMPLATES_COPIED -gt 0 ] || [ $LABELS_CREAT
   echo ""
   echo "Next steps:"
   if [ "$PROVIDER" = "github" ]; then
-    echo "  1. Actions → Delivery OS — Labels → Run workflow (if not using --with-labels)"
+    echo "  1. Actions → DeliveryOS — Labels → Run workflow (if not using --with-labels)"
     [ -n "$LABELS_SKIP_REASON" ] && echo "     (Labels skipped: $LABELS_SKIP_REASON)"
     echo "  2. Settings → Secrets and variables → Actions: RELEASE_APPROVER, QA_APPROVER, QA_ASSIGNEES"
     echo "  3. Optional secrets: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID"

@@ -1,8 +1,8 @@
 # Product and frequently asked questions (PRFAQ)
 
-**GitHub Delivery Operating System (`github-delivery-os`)**
+**DeliveryOS (`deliveryos`)**
 
-This document answers common questions for **engineering leaders**, **DevOps and platform teams**, **release managers**, and **individual contributors** evaluating or adopting Delivery OS.
+This document answers common questions for **engineering leaders**, **DevOps and platform teams**, **release managers**, and **individual contributors** evaluating or adopting DeliveryOS.
 
 ---
 
@@ -12,21 +12,21 @@ Teams often coordinate delivery in GitHub informally: ad hoc sprints, inconsiste
 
 Before the npm package, adopting the same workflow set usually meant **cloning**, **manually copying** files, or **rebuilding** similar automation yourself—leading to **drift** between repos and **slow** rollout.
 
-**`github-delivery-os`** installs workflows and templates into a target repo with a **documented CLI**, so behavior stays **aligned** with the published model and **versioned** releases on npm.
+**`deliveryos`** installs workflows and templates into a target repo with a **documented CLI**, so behavior stays **aligned** with the published model and **versioned** releases on npm.
 
 ---
 
-## 2. What is `github-delivery-os`?
+## 2. What is `deliveryos`?
 
-**`github-delivery-os`** is the npm package name for the **GitHub Delivery Operating System**.
+**`deliveryos`** is the npm package name for **DeliveryOS**.
 
 It ships a **command-line interface** that copies **GitHub Actions** workflows and, optionally, **issue templates** into a repository you specify. After installation, all automation runs **inside that repository** on GitHub.
 
 | Resource | Link |
 |----------|------|
-| npm | [github-delivery-os](https://www.npmjs.com/package/github-delivery-os) |
-| Homepage | [GitHub Pages site](https://phaneroo.github.io/github-delivery-operating-system/) |
-| Source | [github-delivery-operating-system](https://github.com/Phaneroo/github-delivery-operating-system) |
+| npm | [deliveryos](https://www.npmjs.com/package/deliveryos) |
+| Homepage | [GitHub Pages site](https://jkaweesi22.github.io/deliveryOS/) |
+| Source | [deliveryOS](https://github.com/jkaweesi22/deliveryOS) |
 | License | MIT (see repository) |
 
 ---
@@ -36,7 +36,7 @@ It ships a **command-line interface** that copies **GitHub Actions** workflows a
 Run this from the **root** of the repository where you want the files:
 
 ```bash
-npx github-delivery-os install --with-templates .
+npx deliveryos install --with-templates .
 ```
 
 Common flags:
@@ -46,7 +46,7 @@ Common flags:
 | `--with-templates` | Copy issue templates (recommended for sprint and release forms). |
 | `--with-labels` | Create labels using the GitHub CLI (`gh`); requires authentication. |
 | `--dry-run` | Show planned changes without writing files. |
-| `--overwrite` | Replace existing Delivery OS files (use when upgrading; prefer `--dry-run` first). |
+| `--overwrite` | Replace existing DeliveryOS files (use when upgrading; prefer `--dry-run` first). |
 
 Other commands include `status` and `uninstall`. By default, existing files are **not** overwritten unless you opt in.
 
@@ -72,7 +72,7 @@ With `--with-templates`, you get structured forms for sprints, tasks, bugs, QA r
 
 ## 5. How is this different from branch protection and pull requests alone?
 
-GitHub’s built-in features focus on **code review** and **branch rules**. Delivery OS adds an **issue-centric lifecycle**: planned sprints as issues, QA requests, production release issues, **label-driven** state, and **comment-based** approval rules that your organization configures. It complements—not replaces—CI/CD pipelines.
+GitHub’s built-in features focus on **code review** and **branch rules**. DeliveryOS adds an **issue-centric lifecycle**: planned sprints as issues, QA requests, production release issues, **label-driven** state, and **comment-based** approval rules that your organization configures. It complements—not replaces—CI/CD pipelines.
 
 ---
 
@@ -105,7 +105,7 @@ Production flows are designed so that **`ready-for-deploy`** is applied only whe
 
 ## 9. Do I have to use npm?
 
-No. You may **clone** this repository and use the shell installer scripts documented in [Consumer Setup](consumer-setup.md). npm is the **recommended** path for quick adoption and **pinned versions** (`npx github-delivery-os@x.y.z`) when you need reproducible installs.
+No. You may **clone** this repository and use the shell installer scripts documented in [Consumer Setup](consumer-setup.md). npm is the **recommended** path for quick adoption and **pinned versions** (`npx deliveryos@x.y.z`) when you need reproducible installs.
 
 ---
 
@@ -127,7 +127,7 @@ The model is **per-repository** and **workflow-driven**, which scales by rolling
 
 ## 12. Roadmap (high level)
 
-Directions under consideration include stronger **enterprise pinning** documentation, **environment-specific** gates (for example staging versus production), **metrics** on approvals and cycle time, and continued documentation improvements. Priorities may change; watch [releases](https://github.com/Phaneroo/github-delivery-operating-system/releases) and the repository for updates.
+Directions under consideration include stronger **enterprise pinning** documentation, **environment-specific** gates (for example staging versus production), **metrics** on approvals and cycle time, and continued documentation improvements. Priorities may change; watch [releases](https://github.com/jkaweesi22/deliveryOS/releases) and the repository for updates.
 
 ---
 

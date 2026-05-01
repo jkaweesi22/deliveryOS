@@ -93,7 +93,7 @@ function runInstall(options) {
 
   if (overwrite) {
     console.log('');
-    console.log('⚠️  WARNING: Overwrite mode — existing Delivery OS assets will be REPLACED.');
+    console.log('⚠️  WARNING: Overwrite mode — existing DeliveryOS assets will be REPLACED.');
     console.log('    (Other files in .github/ or .gitlab/ with different names are not affected.)');
     console.log('');
   } else if (dryRun) {
@@ -431,7 +431,7 @@ function printGithubNextSteps({
     }
     console.log('');
     console.log('Next steps:');
-    console.log('  1. Create labels: Actions → Delivery OS — Labels → Run workflow');
+    console.log('  1. Create labels: Actions → DeliveryOS — Labels → Run workflow');
     if (labelsSkipReason) console.log(`     (Labels skipped: ${labelsSkipReason})`);
     console.log('  2. Configure repo variables (Settings → Secrets and variables → Actions):');
     console.log('     - RELEASE_APPROVER, QA_APPROVER, QA_ASSIGNEES (usernames)');
@@ -520,7 +520,7 @@ function runStatus(options) {
   }
   if (gitlabBundle) {
     console.log('GitLab CI:');
-    console.log('  ✓ .gitlab-ci.yml (Delivery OS bundle)');
+    console.log('  ✓ .gitlab-ci.yml (DeliveryOS bundle)');
     console.log('');
   }
   if (installedGitlabTemplates.length > 0) {
@@ -540,9 +540,9 @@ function runStatus(options) {
   const anyGitlab = gitlabBundle || installedGitlabTemplates.length > 0;
 
   if (!anyGithub && !anyGitlab) {
-    console.log('Delivery OS is not installed in this repository.');
-    console.log('Run: npx github-delivery-os install --with-templates .');
-    console.log('Or:  npx github-delivery-os install --provider gitlab --with-templates .');
+    console.log('DeliveryOS is not installed in this repository.');
+    console.log('Run: npx deliveryos install --with-templates .');
+    console.log('Or:  npx deliveryos install --provider gitlab --with-templates .');
   } else {
     console.log(
       `Summary: ${installedWorkflows.length}/${WORKFLOWS.length} GitHub workflows, ` +
@@ -636,14 +636,14 @@ function runUninstall(options) {
   if (doGitlab) {
     if (isGitlabBundleFile(gitlabCi)) {
       if (dryRun) {
-        console.log('  [dry-run] Would remove: .gitlab-ci.yml (Delivery OS bundle)');
+        console.log('  [dry-run] Would remove: .gitlab-ci.yml (DeliveryOS bundle)');
       } else {
         fs.unlinkSync(gitlabCi);
-        console.log('  Removed: .gitlab-ci.yml (Delivery OS bundle)');
+        console.log('  Removed: .gitlab-ci.yml (DeliveryOS bundle)');
       }
       gitlabCiRemoved++;
     } else if (fs.existsSync(gitlabCi)) {
-      console.log('  Left in place: .gitlab-ci.yml (not a Delivery OS bundle file)');
+      console.log('  Left in place: .gitlab-ci.yml (not a DeliveryOS bundle file)');
     }
 
     if (withTemplates) {
@@ -681,7 +681,7 @@ function runUninstall(options) {
       }
     }
   } else {
-    console.log('No Delivery OS files found to remove (for selected provider).');
+    console.log('No DeliveryOS files found to remove (for selected provider).');
   }
   console.log('');
   console.log('=== Uninstall complete ===');

@@ -13,7 +13,7 @@ const version = fs.existsSync(pkgPath)
 program
   .name('delivery-os')
   .description(
-    'Delivery Operating System — sprint, QA, and release governance (GitHub Actions and GitLab CI)'
+    'DeliveryOS — sprint, QA, and release governance (GitHub, GitLab, and extensible providers)'
   )
   .version(version);
 
@@ -55,7 +55,7 @@ program
 
 program
   .command('uninstall [target]')
-  .description('Remove Delivery OS workflows (and optionally templates)')
+  .description('Remove DeliveryOS workflows (and optionally templates)')
   .option(
     '-p, --provider <name>',
     'github, gitlab, or all (default all)',

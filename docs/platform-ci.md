@@ -1,6 +1,6 @@
 # Platform CI: GitHub Actions and GitLab CI
 
-Delivery OS is **host-agnostic in principle**: governance labels, issue templates, and CI variables use the same *meaning* across hosts. **Automation** is implemented where each platform supports it today.
+DeliveryOS is **host-agnostic in principle**: governance labels, issue templates, and CI variables use the same *meaning* across hosts. **Automation** is implemented where each platform supports it today.
 
 Shared **Node CLI** commands (`issue-event`, `approval-event`, `notify`, `labels-ensure`) live in the published package (`dist/main.js`); GitHub workflows in this repo run `npm run build` then `node dist/main.js …`. See [MIGRATION.md](MIGRATION.md) and [PROVIDER_MATRIX.md](PROVIDER_MATRIX.md).
 
@@ -38,10 +38,10 @@ The `templates/gitlab/.gitlab-ci.yml` bundle ships **Pages + Release** plus docu
 
 ```bash
 # GitHub (default): `.github/workflows` + optional Issue Form templates
-npx github-delivery-os install --with-templates .
+npx deliveryos install --with-templates .
 
 # GitLab: root `.gitlab-ci.yml` + `.gitlab/issue_templates/*.md` (Pages/Release baseline)
-npx github-delivery-os install --provider gitlab --with-templates .
+npx deliveryos install --provider gitlab --with-templates .
 # Full issue automation: run the same CLI with GitLab webhooks — see examples/gitlab-ci/README.md.
 ```
 
