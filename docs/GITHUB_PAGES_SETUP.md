@@ -4,6 +4,8 @@ Published site: **`https://jkaweesi22.github.io/deliveryOS/`**
 
 The repo already includes [`.github/workflows/pages.yml`](../.github/workflows/pages.yml). It deploys the **`docs/`** folder (static `index.html`, `prfaq.html`, `site.css`, `site.js`) on every push to **`main`**.
 
+**Order matters:** Complete **Step 1** (enable Pages → GitHub Actions in the repo settings) **before** you rely on the workflow. If Pages is still disabled, deployment fails (GitHub’s Pages API returns **404** until the site is configured).
+
 ---
 
 ## Step 1 — One-time: turn on Pages + Actions
@@ -57,6 +59,7 @@ The first deploy can take **1–3 minutes**. Hard-refresh (`Cmd+Shift+R` / `Ctrl
 
 | Issue | What to try |
 |--------|-------------|
+| `Get Pages site failed` / `Not Found` from **configure-pages** (older workflows) | Enable **Settings → Pages → Source: GitHub Actions** first, then re-run. This repo’s workflow no longer uses `configure-pages`; update from `main` if you still see that step. |
 | 404 | Confirm **Source** is **GitHub Actions**, not an old branch/folder. Re-run the workflow. |
 | Workflow fails on permissions | Ensure `pages.yml` has `permissions: pages: write` and `id-token: write` (it does). |
 | Wrong repo name in URL | Project Pages URL is `https://<owner>.github.io/<repo>/` — must match the **exact** repo name (including case where the host cares). |

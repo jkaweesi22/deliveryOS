@@ -1,5 +1,7 @@
-# Deploy docs/ to GitHub Pages
-# Requires: Settings → Pages → Source: GitHub Actions
+# Deploy docs/ to GitHub Pages (static site).
+#
+# REQUIRED once per repo: Settings → Pages → Build and deployment → Source: "GitHub Actions"
+# (until then, the Pages API returns 404 and deployment will fail.)
 
 name: Deploy to GitHub Pages
 
@@ -32,9 +34,6 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v6
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
