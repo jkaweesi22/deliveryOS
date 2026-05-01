@@ -1,0 +1,23 @@
+# Dual approval / decline on production issues (issue comments)
+name: Delivery OS — Approval
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  issues: write
+
+jobs:
+  run:
+    if: github.event.issue && contains(github.event.issue.labels.*.name || fromJSON('[]'), 'production')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/delivery-os-run
+      - run: node dist/main.js approval-event
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_APPROVER: ${{ vars.RELEASE_APPROVER || 'release-approver' }}
+          QA_APPROVER: ${{ vars.QA_APPROVER || 'qa-approver' }}
+          DELIVERY_OS_DRY_RUN: ${{ vars.DELIVERY_OS_DRY_RUN || '' }}

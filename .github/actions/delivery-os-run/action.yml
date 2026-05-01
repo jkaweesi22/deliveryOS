@@ -1,0 +1,11 @@
+name: Build Delivery OS CLI
+description: npm ci + build TypeScript automation (dist/)
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: npm
+    - run: npm ci && npm run build
+      shell: bash

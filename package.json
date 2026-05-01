@@ -1,0 +1,65 @@
+{
+  "name": "github-delivery-os",
+  "version": "1.0.3",
+  "description": "Delivery OS: platform-agnostic governance CLI (GitHub, GitLab) with installers and CI templates.",
+  "main": "src/install.js",
+  "bin": {
+    "delivery-os": "./bin/delivery-os.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "install:local": "node bin/delivery-os.js install --with-templates .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepack": "npm run build"
+  },
+  "keywords": [
+    "github",
+    "github-actions",
+    "gitlab",
+    "gitlab-ci",
+    "delivery",
+    "sprint",
+    "sprint-planning",
+    "qa",
+    "release",
+    "release-management",
+    "governance",
+    "workflows",
+    "automation",
+    "devops",
+    "ci-cd"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Phaneroo/github-delivery-operating-system"
+  },
+  "homepage": "https://phaneroo.github.io/github-delivery-operating-system/",
+  "bugs": {
+    "url": "https://github.com/Phaneroo/github-delivery-operating-system/issues"
+  },
+  "files": [
+    "bin",
+    "src",
+    "dist",
+    ".github/workflows",
+    ".github/actions",
+    ".github/ISSUE_TEMPLATE",
+    "templates/gitlab",
+    "examples"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "commander": "^11.1.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}

@@ -1,0 +1,26 @@
+# Sprint children, release approver ping, QA assignees, sprint burn-down — unified issues handler
+name: Delivery OS — Issues
+
+on:
+  issues:
+    types: [opened, closed, labeled, reopened]
+
+permissions:
+  issues: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/delivery-os-run
+      - run: node dist/main.js issue-event
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RELEASE_APPROVER: ${{ vars.RELEASE_APPROVER || 'release-approver' }}
+          QA_APPROVER: ${{ vars.QA_APPROVER || 'qa-approver' }}
+          QA_ASSIGNEES: ${{ vars.QA_ASSIGNEES || '' }}
+          PROJECT_NAME: ${{ vars.PROJECT_NAME || '' }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          DELIVERY_OS_DRY_RUN: ${{ vars.DELIVERY_OS_DRY_RUN || '' }}

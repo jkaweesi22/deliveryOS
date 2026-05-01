@@ -1,0 +1,3 @@
+# delivery-operating-system-bundle — upstream wraps local template; consumer install copies the full file.
+include:
+  - local: templates/gitlab/.gitlab-ci.yml

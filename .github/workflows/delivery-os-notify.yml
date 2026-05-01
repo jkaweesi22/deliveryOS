@@ -1,0 +1,26 @@
+# Telegram alerts (parity with legacy telegram-issues.yml)
+name: Delivery OS — Telegram
+
+on:
+  issues:
+    types: [opened, closed, reopened]
+  issue_comment:
+    types: [created]
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/delivery-os-run
+      - run: node dist/main.js notify
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          RELEASE_APPROVER: ${{ vars.RELEASE_APPROVER || 'release-approver' }}
+          DELIVERY_OS_DRY_RUN: ${{ vars.DELIVERY_OS_DRY_RUN || '' }}

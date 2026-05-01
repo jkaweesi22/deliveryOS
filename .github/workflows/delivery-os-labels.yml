@@ -1,0 +1,20 @@
+# One-time / manual: ensure Delivery OS labels exist
+name: Delivery OS — Labels
+
+on:
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  labels:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/delivery-os-run
+      - run: node dist/main.js labels-ensure
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DELIVERY_OS_DRY_RUN: ${{ vars.DELIVERY_OS_DRY_RUN || '' }}

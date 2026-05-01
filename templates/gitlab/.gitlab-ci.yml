@@ -1,0 +1,47 @@
+# delivery-operating-system-bundle
+# Platform-agnostic Delivery OS CI baseline: GitLab Pages (docs/) + semantic version releases.
+# Issue/sprint automation used on GitHub Actions is not triggered the same way on GitLab; see docs/platform-ci.md.
+#
+# Configure in GitLab: Settings → CI/CD → Variables (masked where needed):
+#   RELEASE_APPROVER    — username notified for production issues (used by future/bridged automations)
+#   QA_APPROVER         — QA approver username
+#   QA_ASSIGNEES        — comma-separated assignees for QA issues
+#   TELEGRAM_BOT_TOKEN  — optional, for Telegram integrations
+#   TELEGRAM_CHAT_ID    — optional
+
+variables:
+  FF_USE_FASTZIP: "true"
+
+stages:
+  - pages
+  - release
+
+pages:
+  stage: pages
+  image: alpine:3.20
+  script:
+    - |
+      mkdir -p public
+      if [ -d docs ]; then
+        cp -a docs/. public/
+      else
+        echo '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Project</title></head><body><p>No docs/ directory yet.</p></body></html>' > public/index.html
+      fi
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+# Create a GitLab Release when a tag like v1.2.3 is pushed: git tag v1.2.3 && git push origin v1.2.3
+release_job:
+  stage: release
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  rules:
+    - if: $CI_COMMIT_TAG =~ /^v[0-9]/
+  script:
+    - echo "Publishing release for ${CI_COMMIT_TAG}"
+  release:
+    tag_name: "$CI_COMMIT_TAG"
+    name: "Release $CI_COMMIT_TAG"
+    description: "Release $CI_COMMIT_TAG. See repository for changes."
