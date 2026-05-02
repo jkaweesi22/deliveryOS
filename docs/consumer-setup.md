@@ -25,7 +25,7 @@ This guide explains how to install the Delivery Operating System into your repos
 npx deliveryos install --with-templates .
 ```
 
-From your repo root. Add `--with-labels` to create labels via `gh` CLI.
+From your repo root. Add `--with-labels` to create labels via **`gh`** (GitHub) or **`glab`** (GitLab) when those CLIs are installed and authenticated — see [Required Labels](#required-labels) below.
 
 **Alternative — from the `deliveryOS` repo root:**
 
@@ -54,7 +54,7 @@ From your repo root. Add `--with-labels` to create labels via `gh` CLI.
 | Flag | Description |
 |------|-------------|
 | `-t, --with-templates` | Copy issue templates |
-| `-l, --with-labels` | Create labels via `gh` CLI |
+| `-l, --with-labels` | Create labels via host CLI: **`gh`** (GitHub) or **`glab`** (GitLab); requires auth in that CLI |
 | `-o, --overwrite` | Replace existing files |
 | `-d, --dry-run` | Preview without changing files |
 
@@ -63,7 +63,7 @@ From your repo root. Add `--with-labels` to create labels via `gh` CLI.
 | Flag | Description |
 |------|-------------|
 | `--with-templates` | Copy issue templates (sprint, task, bug, QA, production release) |
-| `--with-labels` | Create labels via `gh` CLI (requires `gh auth` and GitHub remote) |
+| `--with-labels` | Create labels via **`gh label`** or **`glab label`** (see [Required Labels](#required-labels)) |
 | `--overwrite` | Replace existing workflow/template files |
 | `--no-overwrite` | Explicitly skip existing files (default behavior) |
 | `--dry-run` | Show what would happen without changing any files |
@@ -131,7 +131,31 @@ Alerts are sent for: bugs, QA requests, sprints, production releases, PR merges 
 
 ## Required Labels
 
-Run **Actions → DeliveryOS — Labels → Run workflow** once, or use `--with-labels` when installing (requires `gh` CLI).
+Labels must exist before governance automation behaves as designed. Use **one** of these approaches.
+
+### GitHub
+
+1. **After install (recommended):** **Actions → DeliveryOS — Labels** → **Run workflow**.  
+   Uses `GITHUB_TOKEN` from the workflow — no extra CLI.
+2. **During install:** `npx deliveryos install --with-templates --with-labels .`  
+   Requires **`gh`** installed and `gh auth login`; uses the CLI token, not `GITHUB_TOKEN` in the shell.
+3. **Manual / CI:** From a checkout with `npm ci && npm run build`, with repo identity in env:
+   ```bash
+   node dist/main.js labels-ensure
+   ```
+   Set **`GITHUB_TOKEN`** (or **`DELIVERY_OS_TOKEN`**) and **`GITHUB_REPOSITORY`** (or **`DELIVERY_OS_REPO`**) as for other automation jobs.
+
+### GitLab
+
+1. **During install:** `npx deliveryos install --provider gitlab --with-templates --with-labels .`  
+   Requires **`glab`** and `glab auth login` for the target project.
+2. **CI or shell:** Same `labels-ensure` command with **`GITLAB_TOKEN`** (or **`DELIVERY_OS_TOKEN`**) and **`CI_PROJECT_ID`** / **`DELIVERY_OS_PROJECT_ID`**, and **`GITLAB_CI`** or **`DELIVERY_OS_PROVIDER=gitlab`**.  
+   Token needs **`api`** scope (project access token or PAT). Prefer a dedicated job or pipeline rather than reusing `CI_JOB_TOKEN` unless it has label permissions.
+3. There is no GitLab equivalent of “Actions → Run workflow” unless you add a scheduled/manual pipeline that runs `labels-ensure`.
+
+`labels-ensure` creates each catalog label via the REST API and ignores “already exists” responses — safe to re-run.
+
+### Label catalog
 
 | Label | Color |
 |-------|-------|

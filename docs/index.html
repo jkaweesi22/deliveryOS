@@ -144,6 +144,7 @@
         <p><strong>GitLab</strong></p>
         <ol class="steps">
           <li style="margin-bottom: 0.5rem;">Set the same variables in <strong>Settings → CI/CD → Variables</strong> (<code>RELEASE_APPROVER</code>, <code>QA_APPROVER</code>, etc.).</li>
+          <li style="margin-bottom: 0.5rem;"><strong>Create labels:</strong> <code>install … --with-labels</code> with <code>glab</code> authenticated, or run <code>node dist/main.js labels-ensure</code> in CI with <code>GITLAB_TOKEN</code> + project id — <a href="https://github.com/jkaweesi22/deliveryOS/blob/main/docs/consumer-setup.md#required-labels">Required Labels</a>.</li>
           <li style="margin-bottom: 0.5rem;">Wire <strong>project webhooks</strong> (Issues, Comments, Merge requests) to a job that runs <code>node …/dist/main.js issue-event</code> / <code>approval-event</code> / <code>notify</code> with the payload — same CLI as GitHub; see <a href="https://github.com/jkaweesi22/deliveryOS/tree/main/examples/gitlab-ci">examples/gitlab-ci</a>.</li>
         </ol>
       </section>
